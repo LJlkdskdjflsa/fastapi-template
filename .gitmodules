@@ -1,0 +1,3 @@
+[submodule "xdev/dev-tools"]
+	path = xdev/dev-tools
+	url = git@github.com:xrex-inc/dev-tools.git
