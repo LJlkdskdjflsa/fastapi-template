@@ -12,6 +12,7 @@ fastapi = "^0.93.0"
 uvicorn = "^0.20.0"
 alembic = "^1.10.2"
 asgi-correlation-id = "^4.1.0"
+python-dotenv = "^1.0.0"
 
 
 [tool.poetry.group.dev.dependencies]
