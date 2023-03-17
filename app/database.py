@@ -3,15 +3,17 @@ from contextvars import ContextVar
 from functools import wraps
 from typing import Generator, Optional
 
-from core.config import SystemConfig
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import Session, sessionmaker
 
-engine = create_engine(
-    f'{SystemConfig.DB_URL}?charset=utf8mb4', pool_pre_ping=True, echo='debug', encoding='utf8',
-    convert_unicode=True, pool_size=10, max_overflow=20, pool_recycle=3600,
-)
+from core.config import SystemConfig
+
+# engine = create_engine(
+#     f'{SystemConfig.DB_URL}?charset=utf8mb4', pool_pre_ping=True, echo='debug', encoding='utf8',
+#     convert_unicode=True, pool_size=10, max_overflow=20, pool_recycle=3600,
+# )
+engine = create_engine(f'{SystemConfig.DB_URL}')
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative_base()
@@ -19,7 +21,6 @@ Base = declarative_base()
 db_session_context: ContextVar[Optional[Session]] = ContextVar('db_session', default=None)
 
 
-# 建立 get_db_session() 並實現一個 database session instance and yield it
 def get_db_session() -> Generator[Session, None, None]:
     db_session = db_session_context.get()
     if db_session is None:

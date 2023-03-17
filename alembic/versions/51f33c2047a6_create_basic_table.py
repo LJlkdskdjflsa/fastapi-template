@@ -1,11 +1,12 @@
 """create basic table
 
 Revision ID: 51f33c2047a6
-Revises: 
+Revises:
 Create Date: 2023-03-09 22:53:41.891112
 
 """
 import sqlalchemy as sa
+
 from alembic import op
 
 # revision identifiers, used by Alembic.
@@ -35,8 +36,8 @@ def upgrade() -> None:
         sa.Column('url', sa.String(length=255), nullable=False),
         sa.Column('user_id', sa.Integer(), nullable=False),
         sa.Column('type_id', sa.Integer(), nullable=True),
-        sa.ForeignKeyConstraint(['type_id'], ['feed_type.id'], ),
-        sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),
+        sa.ForeignKeyConstraint(['type_id'], ['feed_type.id']),
+        sa.ForeignKeyConstraint(['user_id'], ['user.id']),
         sa.PrimaryKeyConstraint('id'),
     )
 
@@ -58,8 +59,8 @@ def upgrade() -> None:
         sa.Column('feed_id', sa.Integer(), nullable=False),
         sa.Column('created_time', sa.DateTime(), nullable=False),
         sa.Column('source_url', sa.String(length=255), nullable=False),
-        sa.ForeignKeyConstraint(['author_id'], ['user.id'], ),
-        sa.ForeignKeyConstraint(['feed_id'], ['feed.id'], ),
+        sa.ForeignKeyConstraint(['author_id'], ['user.id']),
+        sa.ForeignKeyConstraint(['feed_id'], ['feed.id']),
         sa.PrimaryKeyConstraint('id'),
     )
 
