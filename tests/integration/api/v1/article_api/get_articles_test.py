@@ -5,30 +5,6 @@ from repository.article_repository import ArticleRepository
 
 
 class TestGetArticles:
-    def easy_test(self):
-        result_a = [
-            ArticleResult(
-                id=1,
-                title='Article 1',
-                cover_image_url='https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
-                type='NFT',
-                created_time=datetime(2021, 1, 1, 0, 0, 0),
-                tags=['tag1', 'tag2'],
-                feed={
-                    'id': 1,
-                    'name': 'Feed 1',
-                    'photo_url': 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
-                    'support_controller_address': '0x00000000'
-                },
-                author={
-                    'id': 1,
-                    'name': 'Author 1',
-                    'photo_url': 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
-                    'support_controller_address': '0x00000000'
-                },
-                description='Description 1',
-            ),
-        ]
 
     def test_get_articles(self, test_client, monkeypatch):
         # monkeypach ArticleRepository.get_all

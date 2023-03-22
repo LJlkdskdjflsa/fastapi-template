@@ -35,7 +35,7 @@ def get_articles() -> list[ArticleListView]:
 
 
 @router.get('/{id}')
-def get_article(id: int):
+def get_article(id: int) -> ArticleDetailView:
     return {'id': id, 'title': 'Article {}'.format(id)}
 
 
