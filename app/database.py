@@ -4,8 +4,7 @@ from functools import wraps
 from typing import Generator, Optional
 
 from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import Session, sessionmaker
+from sqlalchemy.orm import Session, sessionmaker, DeclarativeBase
 
 from app.core.config import SystemConfig
 
@@ -16,7 +15,10 @@ from app.core.config import SystemConfig
 engine = create_engine(f'{SystemConfig.DB_URL}')
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-Base = declarative_base()
+
+class Base(DeclarativeBase):
+    pass
+
 
 db_session_context: ContextVar[Optional[Session]] = ContextVar('db_session', default=None)
 

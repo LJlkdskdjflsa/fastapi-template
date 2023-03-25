@@ -1,9 +1,7 @@
 from sqlalchemy import JSON, Column, Integer, String, Text
-from sqlalchemy.ext.declarative import declarative_base
 
 from app.entity.mixin.basic_mixin import BasicMixin
-
-Base = declarative_base()
+from database import Base
 
 
 class ArticleEntity(BasicMixin, Base):

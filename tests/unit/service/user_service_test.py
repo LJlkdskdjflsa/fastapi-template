@@ -34,7 +34,7 @@ class TestUserService:
 
         # Act
 
-        result = UserService.create_users(fake_user_info)
+        result = UserService.create_user(fake_user_info)
 
         # Assert
         assert result == UserResult(

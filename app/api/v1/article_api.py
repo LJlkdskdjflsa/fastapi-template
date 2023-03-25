@@ -1,7 +1,8 @@
 from datetime import datetime
 
-from dto.article_dto import ArticleDetailView, ArticleListView, ArticleResult
 from fastapi import APIRouter
+
+from dto.article_dto import ArticleDetailView, ArticleListView, ArticleResult
 from service.article_service import ArticleService
 
 router = APIRouter()
@@ -9,6 +10,7 @@ router = APIRouter()
 
 @router.post('')
 def create_article() -> ArticleDetailView:
+    """Create article (Use for testing)"""
     fake_article = ArticleResult(
         id=1,
         title='Article 1',

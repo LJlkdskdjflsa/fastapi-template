@@ -11,7 +11,7 @@ class UserService:
 
     @staticmethod
     @database.transactional()
-    def create_users(user_info: UserInfo) -> UserResult:
+    def create_user(user_info: UserInfo) -> UserResult:
         """Create users."""
 
         # create user entity
