@@ -2,11 +2,9 @@ from datetime import datetime
 
 from sqlalchemy import Integer, Column
 from sqlalchemy.orm import Mapped, mapped_column
-from sqlalchemy.orm.decl_api import DeclarativeBase
 
 
-class BasicEntity(DeclarativeBase):
-    __abstract__ = True
+class BasicMixin:
     id: Mapped[int] = mapped_column(primary_key=True)
     created_time = Column(Integer, index=True, default=datetime.utcnow().timestamp())
     updated_time = Column(Integer, index=True, default=datetime.utcnow().timestamp(),
