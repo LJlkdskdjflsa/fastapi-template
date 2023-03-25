@@ -37,4 +37,3 @@ pythonpath = [
 
 [tool.bandit]
 exclude_dirs = ["tests"]
-

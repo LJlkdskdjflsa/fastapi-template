@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from dto.article_dto import ArticleResult, ArticleListView
+from dto.article_dto import ArticleListView, ArticleResult
 from repository.article_repository import ArticleRepository
 
 
@@ -21,13 +21,13 @@ class TestGetArticles:
                         'id': 1,
                         'name': 'Author 1',
                         'photo_url': 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
-                        'support_controller_address': '0x00000000'
+                        'support_controller_address': '0x00000000',
                     },
                     feed={
                         'id': 1,
                         'name': 'Feed 1',
                         'photo_url': 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
-                        'support_controller_address': '0x00000000'
+                        'support_controller_address': '0x00000000',
                     },
                     article_url='https://www.google.com',
                     description='Description 1',

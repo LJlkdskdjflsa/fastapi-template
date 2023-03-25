@@ -1,8 +1,8 @@
 from logging.config import fileConfig
 
-from alembic import context
 from sqlalchemy import engine_from_config, pool
 
+from alembic import context
 from app.entity.article_entity import ArticleEntity
 from app.entity.feed_entity import FeedEntity
 from app.entity.user_entity import UserEntity

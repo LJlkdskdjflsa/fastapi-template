@@ -1,9 +1,8 @@
 from datetime import datetime
 
-from pydantic import BaseModel, AnyUrl
-
 from dto.feed_dto import FeedResult
 from dto.user_dto import AuthorResult
+from pydantic import AnyUrl, BaseModel
 
 
 class ArticleResult(BaseModel):

@@ -1,7 +1,7 @@
 from datetime import datetime
 
 import database
-from dto.article_dto import ArticleResult, ArticleInfo
+from dto.article_dto import ArticleInfo, ArticleResult
 from entity.article_entity import ArticleEntity
 from repository.article_repository import ArticleRepository
 
@@ -22,13 +22,13 @@ class ArticleService:
                     'id': 1,
                     'name': 'Author 1',
                     'photo_url': 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
-                    'support_controller_address': '0x00000000'
+                    'support_controller_address': '0x00000000',
                 },
                 feed={
                     'id': 1,
                     'name': 'Feed 1',
                     'photo_url': 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
-                    'support_controller_address': '0x00000000'
+                    'support_controller_address': '0x00000000',
                 },
                 article_url='https://www.google.com',
                 description='Description 1',
@@ -55,13 +55,13 @@ class ArticleService:
                 'id': 1,
                 'name': 'Author 1',
                 'photo_url': 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
-                'support_controller_address': '0x00000000'
+                'support_controller_address': '0x00000000',
             },
             feed={
                 'id': 1,
                 'name': 'Feed 1',
                 'photo_url': 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
-                'support_controller_address': '0x00000000'
+                'support_controller_address': '0x00000000',
             },
             article_url='https://www.google.com',
             description='Description 1',

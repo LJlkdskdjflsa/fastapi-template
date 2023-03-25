@@ -104,4 +104,3 @@ poetry run pytest -n=20 --reruns 5
 // run with coverage
 pytest --cov=app -v --cov-report=html
 ```
-

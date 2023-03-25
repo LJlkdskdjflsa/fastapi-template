@@ -1,5 +1,5 @@
 import database
-from dto.user_dto import UserResult, UserInfo
+from dto.user_dto import UserInfo, UserResult
 from entity.user_entity import UserEntity
 from repository.user_repository import UserRepository
 

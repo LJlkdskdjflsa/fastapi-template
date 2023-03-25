@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, JSON, Text
+from sqlalchemy import JSON, Column, Integer, String, Text
 from sqlalchemy.ext.declarative import declarative_base
 
 from app.entity.mixin.basic_mixin import BasicMixin

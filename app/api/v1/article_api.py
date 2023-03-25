@@ -1,8 +1,7 @@
 from datetime import datetime
 
+from dto.article_dto import ArticleDetailView, ArticleListView, ArticleResult
 from fastapi import APIRouter
-
-from dto.article_dto import ArticleDetailView, ArticleResult, ArticleListView
 from service.article_service import ArticleService
 
 router = APIRouter()
@@ -21,7 +20,7 @@ def create_article() -> ArticleDetailView:
             'id': 1,
             'name': 'Author 1',
             'photo_url': 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
-            'support_controller_address': '0x00000000'
+            'support_controller_address': '0x00000000',
         },
         description='Description 1',
     )
