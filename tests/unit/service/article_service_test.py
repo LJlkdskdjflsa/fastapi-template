@@ -7,7 +7,7 @@ from service.article_service import ArticleService
 
 
 class TestArticleService:
-    def test_create_article(self, monkeypatch):
+    def test_create_article(self, monkeypatch, mocker):
         # Arrange
         fake_article_info = ArticleInfo(
             title='Article 1',

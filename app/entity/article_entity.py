@@ -1,16 +1,16 @@
 from sqlalchemy import JSON, Column, Integer, String, Text
 
-from app.entity.mixin.basic_mixin import BasicMixin
-from database import Base
+from entity.basic_entity import BasicEntity
 
 
-class ArticleEntity(BasicMixin, Base):
+class ArticleEntity(BasicEntity):
     __tablename__ = 'article'
 
     id = Column(Integer, primary_key=True)
     title = Column(String(64), nullable=False)
     description = Column(Text, nullable=False)
     author_id = Column(Integer)
+    # author_id: Mapped[int] = mapped_column(ForeignKey("parent_table.id"))
     # user: Mapped["User"] = relationship(back_populates="articles")
     feed_id = Column(Integer)
     source_url = Column(String(64), nullable=False)

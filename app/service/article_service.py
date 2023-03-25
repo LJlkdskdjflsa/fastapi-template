@@ -9,6 +9,10 @@ from repository.article_repository import ArticleRepository
 class ArticleService:
     @staticmethod
     def get_articles() -> list[ArticleResult]:
+        """Get all articles."""
+
+        # get all articles
+        # get all article related data
         article_result = [
             ArticleResult(
                 id=1,

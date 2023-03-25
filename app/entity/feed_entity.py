@@ -1,10 +1,10 @@
 from sqlalchemy import Column, Integer, String
 
-from app.entity.mixin.basic_mixin import BasicMixin
+from entity.basic_entity import BasicEntity
 from database import Base
 
 
-class FeedEntity(BasicMixin, Base):
+class FeedEntity(BasicEntity):
     __tablename__ = 'feed'
 
     url = Column(String(256), nullable=False)

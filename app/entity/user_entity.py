@@ -1,10 +1,9 @@
 from sqlalchemy import JSON, Column, String
 
-from app.entity.mixin.basic_mixin import BasicMixin
-from database import Base
+from entity.basic_entity import BasicEntity
 
 
-class UserEntity(BasicMixin, Base):
+class UserEntity(BasicEntity):
     __tablename__ = 'user'
     user_name = Column(String(64), nullable=False)
     photo_url = Column(String(256), nullable=True)
