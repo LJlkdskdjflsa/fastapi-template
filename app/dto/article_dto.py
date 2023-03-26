@@ -1,8 +1,9 @@
 from datetime import datetime
 
+from pydantic import AnyUrl, BaseModel
+
 from dto.feed_dto import FeedResult
 from dto.user_dto import AuthorResult
-from pydantic import AnyUrl, BaseModel
 
 
 class ArticleResult(BaseModel):
@@ -14,7 +15,23 @@ class ArticleResult(BaseModel):
     tags: list[str]
     # author: AuthorResult
     author_id: int
+    feed_id: int
     # feed: FeedResult
+    source_url: AnyUrl
+    created_time: datetime
+    updated_time: datetime
+    # support_controller_address: str
+
+
+class ArticleDetailResult(BaseModel):
+    id: int
+    title: str
+    description: str
+    cover_image_url: AnyUrl
+    type: str
+    tags: list[str]
+    author: AuthorResult
+    feed: FeedResult
     source_url: AnyUrl
     created_time: datetime
     updated_time: datetime

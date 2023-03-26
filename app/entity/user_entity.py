@@ -1,4 +1,7 @@
+from typing import List
+
 from sqlalchemy import JSON, Column, String
+from sqlalchemy.orm import relationship, Mapped
 
 from entity.basic_entity import BasicEntity
 
@@ -11,4 +14,4 @@ class UserEntity(BasicEntity):
     share = Column(JSON)
     nft = Column(JSON)
     collection = Column(JSON)
-    # articles: Mapped[List["Article"]] = relationship(back_populates="user")
+    articles: Mapped[List["ArticleEntity"]] = relationship(back_populates="author")

@@ -1,7 +1,5 @@
-from datetime import datetime
-
 import database
-from dto.article_dto import ArticleInfo, ArticleResult
+from dto.article_dto import ArticleInfo, ArticleResult, ArticleDetailResult
 from entity.article_entity import ArticleEntity
 from repository.article_repository import ArticleRepository
 
@@ -11,69 +9,55 @@ class ArticleService:
     def get_articles() -> list[ArticleResult]:
         """Get all articles."""
 
-        # get all articles
-        # get all article related data
-        article_result = [
+        # get all article entities
+        result = ArticleRepository().get_all()
+
+        # return result dto
+        result_dto = [
             ArticleResult(
-                id=1,
-                title='Article 1',
-                cover_image_url='https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
-                type='NFT',
-                created_time=datetime(2021, 1, 1, 0, 0, 0),
-                tags=['tag1', 'tag2'],
-                author_id=1,
-                author={
-                    'id': 1,
-                    'name': 'Author 1',
-                    'photo_url': 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
-                    'support_controller_address': '0x00000000',
-                },
-                feed={
-                    'id': 1,
-                    'name': 'Feed 1',
-                    'photo_url': 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
-                    'support_controller_address': '0x00000000',
-                },
-                article_url='https://www.google.com',
-                description='Description 1',
-                support_controller_address='0x00000000',
-                source_url='https://www.google.com',
-                updated_time=datetime(2021, 1, 1, 0, 0, 0),
-            ),
-
+                id=article.id,
+                title=article.title,
+                description=article.description,
+                cover_image_url=article.cover_image_url,
+                type=article.type,
+                tags=article.tags,
+                author_id=article.author_id,
+                feed_id=article.feed_id,
+                source_url=article.source_url,
+                created_time=article.created_time,
+                updated_time=article.updated_time,
+            )
+            for article in result
         ]
-        # result = ArticleRepository().get_all()
 
-        return article_result
+        return result_dto
 
     @staticmethod
     def get_article(article_id: int) -> ArticleResult:
-        article_result = ArticleResult(
-            id=1,
-            title='Article 1',
-            cover_image_url='https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
-            type='NFT',
-            created_time=datetime(2021, 1, 1, 0, 0, 0),
-            tags=['tag1', 'tag2'],
-            author={
-                'id': 1,
-                'name': 'Author 1',
-                'photo_url': 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
-                'support_controller_address': '0x00000000',
-            },
-            feed={
-                'id': 1,
-                'name': 'Feed 1',
-                'photo_url': 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png',
-                'support_controller_address': '0x00000000',
-            },
-            article_url='https://www.google.com',
-            description='Description 1',
-            support_controller_address='0x00000000',
-        )
-        # result = ArticleRepository().get_by_id(article_id)
+        # get article entity
+        result = ArticleRepository().get_one_by_id(article_id)
 
-        return article_result
+        # return result dto
+        result_dto = ArticleResult(
+            id=result.id,
+            title=result.title,
+            description=result.description,
+            cover_image_url=result.cover_image_url,
+            type=result.type,
+            tags=result.tags,
+            author_id=result.author_id,
+            feed_id=result.feed_id,
+            source_url=result.source_url,
+            created_time=result.created_time,
+            updated_time=result.updated_time,
+        )
+
+        return result_dto
+
+    @staticmethod
+    def get_article_detail(article_id: int) -> ArticleDetailResult:
+        """Get article detail"""
+        pass
 
     @staticmethod
     @database.transactional()
